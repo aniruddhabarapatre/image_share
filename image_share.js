@@ -15,6 +15,12 @@ if (Meteor.isClient) {
   ];
 
   Template.images.helpers({images:img_data});
+
+  Template.images.events({
+    'click .js-image': function (event) {
+      alert('hello');
+    }
+  });
 }
 
 if (Meteor.isServer) {
