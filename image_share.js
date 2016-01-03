@@ -1,23 +1,22 @@
 if (Meteor.isClient) {
-  // counter starts at 0
-  Session.setDefault('counter', 0);
-
-  Template.hello.helpers({
-    counter: function () {
-      return Session.get('counter');
+  var img_data = [
+    {
+      img_src: "water.jpg",
+      img_alt: "Water from ON1"
+    },
+    {
+      img_src: "Bridge.jpg",
+      img_alt: "Bridge from ON1"
+    },
+    {
+      img_src: "sky.jpg",
+      img_alt: "sky from ON1"
     }
-  });
+  ];
 
-  Template.hello.events({
-    'click button': function () {
-      // increment the counter when button is clicked
-      Session.set('counter', Session.get('counter') + 1);
-    }
-  });
+  Template.images.helpers({images:img_data});
 }
 
 if (Meteor.isServer) {
-  Meteor.startup(function () {
-    // code to run on server at startup
-  });
+  console.log("I am server");
 }
