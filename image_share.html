@@ -3,6 +3,7 @@
 </head>
 
 <body>
+  {{> image_add_form}}
   <h1>Welcome to Coursera Project!</h1>
 
   <div class="container">
@@ -26,4 +27,14 @@
       </div>
     {{/each}}
   </div>
+</template>
+
+<template name="image_add_form">
+  <form class="js-add-image">
+    <input type="text" name="img_src" />
+    <br />
+    <input type="text" name="img_alt" />
+    <br />
+    <button class="btn btn-success">Save</button>
+  </form>
 </template>
