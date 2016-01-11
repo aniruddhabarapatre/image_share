@@ -2,30 +2,20 @@ Images = new Mongo.Collection("images");
 console.log(Images.find().count());
 
 if (Meteor.isClient) {
-  var img_data = [
-    {
-      img_src: "water.jpg",
-      img_alt: "Water from ON1"
-    },
-    {
-      img_src: "Bridge.jpg",
-      img_alt: "Bridge from ON1"
-    },
-    {
-      img_src: "sky.jpg",
-      img_alt: "sky from ON1"
-    }
-  ];
 
-  Template.images.helpers({images:img_data});
+  Template.images.helpers({
+    images:Images.find()
+  });
 
   Template.images.events({
     'click .js-image': function (event) {
       alert('hello');
+    },
+    'click .js-del-image': function (event) {
+      var image_id = this._id;
+      $("#"+image_id).hide("slow", function() {
+        Images.remove({"_id":image_id});
+      });
     }
   });
-}
-
-if (Meteor.isServer) {
-  console.log("I am server");
 }

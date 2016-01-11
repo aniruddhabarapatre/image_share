@@ -1,26 +1,17 @@
-if (Meteor.isServer) {
+if (Meteor.isServer){
   Meteor.startup(function(){
-    if (Images.find().count()) {
-      Images.insert(
-        {
-          img_src: "water.jpg",
-          img_alt: "Water from ON1"
-        }
-      );
-
-      Images.insert(
-        {
-          img_src: "Bridge.jpg",
-          img_alt: "Bridge from ON1"
-        }
-      );
-
-      Images.insert(
-        {
-          img_src: "sky.jpg",
-          img_alt: "sky from ON1"
-        }
-      );
-    };
+    if (Images.find().count() == 0){
+      for (var i=1;i<23;i++){
+        Images.insert(
+          {
+              img_src:"img_"+i+".jpg",
+              img_alt:"image number "+i
+            }
+        );
+      }// end of for insert images
+      // count the images!
+      console.log("startup.js says: "+Images.find().count());
+    }// end of if have no images
   });
+
 }
