@@ -22,6 +22,9 @@ if (Meteor.isClient) {
       var image_id = this._id;
       Images.update({_id:image_id},
                     {$set: {rating:rating}});
+    },
+    'click .js-show-image-form': function (event) {
+      $('#image_add_form').modal('show');
     }
   });
 
@@ -35,6 +38,7 @@ if (Meteor.isClient) {
         img_alt: img_alt,
         createdOn: new Date()
       });
+      $('#image_add_form').modal('show');
       return false;
     }
   });
