@@ -4,11 +4,15 @@
 
 <body>
   {{> image_add_form}}
+  <nav class="navbar navbar-default navbar-fixed-top">
+    <div class="container">
+      {{> loginButtons }}
+    </div>
+  </nav>
 
   <div class="container">
     <h1>Welcome to Image Share!</h1>
-    {{> loginButtons }}
-    <br />
+
     {{> images}}
   </div>
 </body>
