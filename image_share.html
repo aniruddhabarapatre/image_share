@@ -11,16 +11,18 @@
   </nav>
 
   <div class="container">
-    <h1>Welcome to Image Share!</h1>
+    <h1>Welcome to Image Share - {{username}}! </h1>
 
     {{> images}}
   </div>
 </body>
 
 <template name="images">
-  <button class="btn btn-primary js-show-image-form">
-    Add Image
-  </button>
+  {{#if currentUser}}
+    <button class="btn btn-primary js-show-image-form">
+      Add Image
+    </button>
+  {{/if}}
   <div class="row">
     {{#each images}}
       <div class="col-xs-12 col-md-3" id="{{_id}}">
